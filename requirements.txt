@@ -2,4 +2,6 @@ streamlit
 anthropic
 requests
 python-dotenv
+pandas
+altair
 pytest

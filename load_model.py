@@ -78,20 +78,21 @@ def _water_heater_profile() -> list[float]:
     morning showers and evening showers/dishwashing.
     """
     return [
-        0.2, 0.2, 0.2, 0.2, 0.2, 0.5,
-        1.5, 1.8, 1.0, 0.4, 0.3, 0.3,
-        0.3, 0.3, 0.3, 0.4, 0.6, 1.2,
-        1.8, 1.5, 0.8, 0.4, 0.3, 0.2,
+        0.11, 0.11, 0.11, 0.11, 0.11, 0.28,
+        0.84, 1.0, 0.56, 0.22, 0.17, 0.17,
+        0.17, 0.17, 0.17, 0.22, 0.34, 0.67,
+        1.0, 0.84, 0.45, 0.22, 0.17, 0.11,
     ]
 
 
 def _ev_charger_profile() -> list[float]:
-    """A Level 2 charger, plugged in the moment the car gets home from the
-    evening commute and left to charge until full — the naive default.
+    """A Level 1 (120V) charger, plugged in the moment the car gets home from
+    the evening commute and left to charge — the naive default. About 5.6 kWh
+    a day, roughly a 20-mile commute.
     """
     profile = [0.0] * HOURS_IN_DAY
     for hour in (18, 19, 20, 21):
-        profile[hour] = 7.2
+        profile[hour] = 1.4
     return profile
 
 
